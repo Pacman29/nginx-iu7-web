@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <title>Loadbalancing SPA</title>
+	<script src="static/javascripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script src="static/javascripts/bootstrap.min.js" type="text/javascript"></script>
+	<script src="static/javascripts/jquery.json-viewer.js" type="text/javascript"></script>
+    <script src="static/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
+	<link rel="stylesheet" href="static/stylesheets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/stylesheets/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="static/stylesheets/css/jquery.json-viewer.css">
+	<link rel="stylesheet" href="static/stylesheets/css/material-checkbox.css">
+    <link rel="stylesheet" href="static/stylesheets/css/style.css">
+</head>
+<body>
+	<nav class="navbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand">Настройка nginx. Тестовая страница</a>
+			</div>
+			<div class="nav navbar-nav navbar-right">
+				<div class="gzip_switcher material-switch pull-right">
+                    GZIP:
+					<input id="gzip_button" type="checkbox"/>
+					<label for="gzip_button" class="label-success"></label>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-auto tocentre">
+				<h3><a href="/presenter">Презентация</a></h3>
+			</div>
+		<div class="row">
+			<div class="col col-md-3">
+				<div class="btn-group-vertical">
+					<a class="btn btn-primary" id="button_api_system">Информация о сервере</a>
+					<a class="btn btn-primary" id="button_api_system_cpu">CPU</a>
+					<a class="btn btn-primary" id="button_api_system_processes">Процессы</a>
+					<a class="btn btn-primary" id="button_api_system_currentLoad">Текущая загруженность</a>
+					<a class="btn btn-primary" id="button_api_system_osInfo">Информация о системе</a>
+					<a class="btn btn-primary" id="button_api_app_port">Порт приложения</a>
+				</div>
+			</div>
+			<div class="col-md-auto">
+				<pre id="json-renderer"></pre>
+			</div>
+		</div>
+	</div>
+    <div class="container">
+        <h2>WEBP/JPG:</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <a href="static/images/jpg/big.jpg" target="_blank">
+                        <img src="static/images/jpg/big.jpg" alt="Lights" style="width:100%">
+                        <div class="caption">
+                            <p>big.jpg</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <a href="static/images/webp/big.webp" target="_blank">
+                        <img src="static/images/webp/big.webp" alt="Nature" style="width:100%">
+                        <div class="caption">
+                            <p>big.webp</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <a href="static/images/jpg/pug.jpg" target="_blank">
+                        <img src="static/images/jpg/pug.jpg" alt="Fjords" style="width:100%">
+                        <div class="caption">
+                            <p>pug.jpg</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <a href="static/images/webp/pug.webp" target="_blank">
+                        <img src="static/images/webp/pug.webp" alt="Fjords" style="width:100%">
+                        <div class="caption">
+                            <p>pug.webp</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
