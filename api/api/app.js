@@ -10,7 +10,6 @@ var serveStatic = require('serve-static');
 var index = require('./routes/index');
 var system = require('./routes/system');
 var application = require('./routes/application');
-var httptest = require('./routes/httptest');
 
 var app = express();
 
