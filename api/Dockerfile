@@ -35,6 +35,6 @@ ADD nginx.yaml /etc/dd-agent/conf.d
 RUN cat /etc/nginx/nginx.conf
 
 CMD echo "RUN APPS" \
-	&& bash -c "cd ./backend && NODE_ENV=production PORT=8000 forever -a -o out.log -e err.log  start ./bin/www && echo 1 "  \
+	&& bash -c "cd ./backend && NODE_ENV=production PORT=8000 forever -a -o out.log -e err.log  start ./bin/www && echo 1 && NODE_ENV=production PORT=8010 forever -a -o out.log -e err.log  start ./bin/www && echo 2"  \
     && service datadog-agent start \
 	&& nginx -g 'daemon off;' \ 
