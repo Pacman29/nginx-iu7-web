@@ -1,4 +1,5 @@
 var express = require('express');
+var apicache = require('apicache')
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -13,6 +14,10 @@ var httptest = require('./routes/httptest');
 
 var app = express();
 
+let cache = apicache.middleware
+
+app.use(cache('5 minutes'))
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -24,14 +29,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
-app.use(serveStatic(path.join(__dirname, 'public')))
-
-
 
 app.use('/', index);
 app.use('/api/system',system);
 app.use('/api/app',application);
-app.use('/api/httptest',httptest);
+app.use('/api/httptest',serveStatic(path.join(__dirname, 'public/httptest')))
 
 
 

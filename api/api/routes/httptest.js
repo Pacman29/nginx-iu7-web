@@ -4,6 +4,7 @@ var path = require('path');
 
 router.get('/*', function(req, res, next) {
     let p = path.join(__dirname, '../public/',req.originalUrl.substr(5));
+    console.log("must not use");
     res.sendFile(p);
 });
 
