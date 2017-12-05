@@ -33,9 +33,6 @@ app.use(cookieParser());
 app.use('/', index);
 app.use('/api/system',system);
 app.use('/api/app',application);
-app.use('/api/httptest',serveStatic(path.join(__dirname, 'public/httptest')))
-
-
 
 
 // catch 404 and forward to error handler
