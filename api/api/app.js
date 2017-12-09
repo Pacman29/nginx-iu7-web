@@ -13,9 +13,17 @@ var application = require('./routes/application');
 
 var app = express();
 
-let cache = apicache.middleware
+let cache = apicache.middleware;
 
-app.use(cache('5 minutes'))
+var dd_options = {
+    'response_code':true,
+    'tags': ['app:IU7_loadbalance']
+};
+
+var connect_datadog = require('connect-datadog')(dd_options);
+
+
+app.use(cache('5 minutes'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,6 +37,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 
+//datadog
+app.use(connect_datadog);
+
+//routers
 app.use('/', index);
 app.use('/api/system',system);
 app.use('/api/app',application);
